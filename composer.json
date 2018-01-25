@@ -1,0 +1,22 @@
+{
+    "name": "dartui/multiinfo",
+    "description": "Polkomtel MultiInfo integration for sending SMS from Laravel applications ",
+    "keywords": ["polkomtel", "multiinfo", "laravel", "sms"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Krzysztof Grabania",
+            "email": "krzysztof.grabania@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "nesbot/carbon": "~1.20"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dartui\\Multiinfo\\": "src/"
+        }
+    }
+}
