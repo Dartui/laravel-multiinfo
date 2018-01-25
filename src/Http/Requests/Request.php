@@ -1,11 +1,12 @@
 <?php
 namespace Dartui\Multiinfo\Http\Requests;
 
+use Dartui\Multiinfo\Contracts\Request as RequestContract;
 use Dartui\Multiinfo\Http\Client;
 use Dartui\Multiinfo\Http\RequestHandler;
 use Dartui\Multiinfo\Multiinfo;
 
-abstract class Request
+abstract class Request implements RequestContract
 {
     protected $multiinfo;
 

@@ -1,8 +1,8 @@
 <?php
 namespace Dartui\Multiinfo\Http;
 
+use Dartui\Multiinfo\Contracts\Request;
 use Dartui\Multiinfo\Factories\ResponseFactory;
-use Dartui\Multiinfo\Requests\Request;
 
 class RequestHandler
 {

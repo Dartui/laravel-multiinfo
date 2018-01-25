@@ -1,9 +1,10 @@
 <?php
 namespace Dartui\Multiinfo\Http\Responses;
 
+use Dartui\Multiinfo\Contracts\Response as ResponseContract;
 use Dartui\Multiinfo\Http\RequestHandler;
 
-abstract class Response
+abstract class Response implements ResponseContract
 {
     protected $response;
 
