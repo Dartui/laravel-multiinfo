@@ -1,5 +1,9 @@
 # MultiInfo Changelog
 
+## 1.0.1 - 30-01-2018
+
+- Fix: read config data from .env file
+
 ## 1.0.0 - 30-01-2018
 
 - Initial release
