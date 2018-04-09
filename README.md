@@ -35,7 +35,9 @@ php artisan vendor:publish --provider=Dartui\\Multiinfo\\ServiceProvider
 'service_id' => null, // API user service id
 
 'cert'       => [
-    'path'     => null,  // Certificate absolute path on server
+    'is_nss'   => false, // Whether cURL is using NSS or no
+    'nicename' => null,  // Nicename of certificate (required for NSS)
+    'path'     => null,  // Certificate absolute path on server or path to NSS DB
     'password' => null,  // Certificate password
     'type'     => 'P12', // Certificate type (PEM or P12)
 ],
