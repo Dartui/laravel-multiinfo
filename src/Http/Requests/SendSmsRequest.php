@@ -11,6 +11,8 @@ class SendSmsRequest extends Request
 
     protected $message;
 
+    protected $origin;
+
     public function setDestination($destination)
     {
         $this->destination = $destination;
@@ -25,11 +27,19 @@ class SendSmsRequest extends Request
         return $this;
     }
 
+    public function setOrigin($origin)
+    {
+        $this->origin = $origin;
+
+        return $this;
+    }
+
     public function toArray()
     {
         return [
             'dest' => $this->destination,
             'text' => $this->message,
+            'orig' => $this->origin,
         ];
     }
 }
