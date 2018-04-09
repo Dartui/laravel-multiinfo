@@ -50,6 +50,7 @@ $multiinfo = app('multiinfo');
 
 $sendSms = $multiinfo->request('sendSms')
     ->setDestination('48123456789')
+    ->setOrigin('New Origin')
     ->setMessage('Hello world!')
     ->send();
     
@@ -67,7 +68,9 @@ $sendSms->getMessageId(); // sent SMS id
 ```php
 $multiinfo = app('multiinfo');
 
-$getSms = $multiinfo->request('getSms')->send();
+$getSms = $multiinfo->request('getSms')
+    ->setTimeout(5000)
+    ->send();
 
 $getSms->getCode();        // status code
 $getSms->getDescription(); // response in text format
