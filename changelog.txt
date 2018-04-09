@@ -1,5 +1,9 @@
 # MultiInfo Changelog
 
+## 1.0.3 - 09-04-2018
+
+- Feature: add support for cURL with NSS
+
 ## 1.0.2 - 09-04-2018
 
 - Feature: add timeout to GetSms request
