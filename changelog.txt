@@ -1,5 +1,10 @@
 # MultiInfo Changelog
 
+## 1.0.2 - 09-04-2018
+
+- Feature: add timeout to GetSms request
+- Feature: add origin to SendSms request
+
 ## 1.0.1 - 30-01-2018
 
 - Fix: read config data from .env file
