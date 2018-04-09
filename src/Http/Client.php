@@ -10,14 +10,21 @@ class Client extends BaseClient
     {
         $options = [
             'base_uri' => $config->get('multiinfo.url'),
-            'cert'     => [
-                $config->get('multiinfo.cert.path'),
-                $config->get('multiinfo.cert.password'),
-            ],
             'curl'     => [
                 CURLOPT_SSLCERTTYPE => $config->get('multiinfo.cert.type', 'PEM'),
             ],
         ];
+
+        if ($config->get('multiinfo.cert.is_nss')) {
+            putenv(sprintf('SSL_DIR=%s', $config->get('multiinfo.cert.path', '')));
+
+            $options['curl'][CURLOPT_SSLCERT] = $config->get('multiinfo.cert.nicename');
+        } else {
+            $options['cert'] = [
+                $config->get('multiinfo.cert.path'),
+                $config->get('multiinfo.cert.password'),
+            ];
+        }
 
         parent::__construct($options);
     }
