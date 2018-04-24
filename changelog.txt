@@ -1,5 +1,11 @@
 # MultiInfo Changelog
 
+## 1.1.0 - 24-04-2018
+
+- Feature: new requests: confirmSms and package
+- Feature: add missing methods to getSms request
+- Feature: new method for generating query to Guzzle
+
 ## 1.0.3 - 09-04-2018
 
 - Feature: add support for cURL with NSS
