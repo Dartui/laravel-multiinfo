@@ -43,43 +43,53 @@ php artisan vendor:publish --provider=Dartui\\Multiinfo\\ServiceProvider
 ],
 ```
 
-## Usage
+## Usage (Request and Response)
+
+Each response inherit this methods:
+
+```php
+$response->getCode();        // status code
+$response->getDescription(); // response in text format
+
+$response->hasError();
+$response->getError();
+```
 
 ### Send SMS to single phone number
 
+#### Request
 ```php
 $multiinfo = app('multiinfo');
 
 $sendSms = $multiinfo->request('sendSms')
-    ->setDestination('48123456789')
-    ->setOrigin('New Origin')
-    ->setMessage('Hello world!')
+    ->setDestination('48123456789') // required
+    ->setMessage('Hello world!')    // required
+    ->setOrigin('New Origin')       // optional
     ->send();
-    
-$sendSms->getCode();        // status code
-$sendSms->getDescription(); // response in text format
+```
 
-$sendSms->hasError();
-$sendSms->getError();
+#### Response
 
+```php
 $sendSms->getMessageId(); // sent SMS id
 ```
 
 ### Get oldest SMS sent to MultiInfo
 
+#### Request
 ```php
 $multiinfo = app('multiinfo');
 
 $getSms = $multiinfo->request('getSms')
-    ->setTimeout(5000)
+    ->setManualConfirmation(true) // optional, default false
+    ->setDeleteContent(true)      // optional, default false
+    ->setTimeout(5000)            // optional
     ->send();
+```
 
-$getSms->getCode();        // status code
-$getSms->getDescription(); // response in text format
+#### Response
 
-$getSms->hasError();
-$getSms->getError();
-
+```php
 $getSms->getMessageId();   // received SMS id
 $getSms->getSender();      // sender phone number
 $getSms->getReceiver();    // receiver phone number
@@ -90,4 +100,43 @@ $getSms->getEncoding();    // encoding id
 $getSms->getServiceId();   // service id
 $getSms->getConnector();   // connector id
 $getSms->getReceiveDate(); // received date
+```
+
+### Confirm receiving SMS
+
+#### Request
+
+```php
+$multiinfo = app('multiinfo');
+
+$confirmSms = $multiinfo->request('confirmSms')
+    ->setMessageId(123456)   // required
+    ->setDeleteContent(true) // optional, default false
+    ->send();
+```
+
+#### Response
+
+This response do not have any additional methods.
+
+### Send SMS to multiple phone numbers with different messages
+
+#### Request
+
+```php
+$multiinfo = app('multiinfo');
+
+$package = $multiinfo->request('package')
+    ->setMessage('Hello world!')  // default message
+    ->setOrigin('New Origin')     // optional
+    ->addDestination('123456789')
+    ->addDestination('234567890') // to this numbers will be send default message
+    ->addDestination('987654321', 'Hello another world!') // personalized message
+    ->send();
+```
+
+#### Response
+
+```php
+$package->getPackageId(); // sent package id
 ```
