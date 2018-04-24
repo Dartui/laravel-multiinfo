@@ -44,17 +44,22 @@ abstract class Request implements RequestContract
         return $this->url;
     }
 
-    public function parameters()
+    protected function auth()
     {
-        return array_merge([
+        return [
             'serviceId' => $this->multiinfo->getConfig('service_id'),
             'login'     => $this->multiinfo->getConfig('login'),
             'password'  => $this->multiinfo->getConfig('password'),
-        ], $this->toArray());
+        ];
     }
 
     public function toArray()
     {
         return [];
+    }
+
+    public function toQuery()
+    {
+        return array_merge($this->auth(), $this->toArray());
     }
 }

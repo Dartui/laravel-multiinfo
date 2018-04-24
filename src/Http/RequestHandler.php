@@ -33,7 +33,7 @@ class RequestHandler
     public function response()
     {
         return $this->request->client()->get($this->request->url(), [
-            'query' => $this->request->parameters(),
+            'query' => $this->request->toQuery(),
         ]);
     }
 }
