@@ -1,14 +1,15 @@
 <?php
 namespace Dartui\Multiinfo\Factories;
 
-use Dartui\Multiinfo\Http\Responses\GetSmsResponse;
-use Dartui\Multiinfo\Http\Responses\SendSmsResponse;
+use Dartui\Multiinfo\Http\Responses as Response;
 
 class ResponseFactory
 {
     protected static $responses = [
-        'sendSms' => SendSmsResponse::class,
-        'getSms'  => GetSmsResponse::class,
+        'sendSms'    => Response\SendSmsResponse::class,
+        'getSms'     => Response\GetSmsResponse::class,
+        'confirmSms' => Response\ConfirmSmsResponse::class,
+        'package'    => Response\PackageResponse::class,
     ];
 
     public static function getResponse($action)

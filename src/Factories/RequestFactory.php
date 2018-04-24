@@ -1,14 +1,15 @@
 <?php
 namespace Dartui\Multiinfo\Factories;
 
-use Dartui\Multiinfo\Http\Requests\GetSmsRequest;
-use Dartui\Multiinfo\Http\Requests\SendSmsRequest;
+use Dartui\Multiinfo\Http\Requests as Request;
 
 class RequestFactory
 {
     protected static $requests = [
-        'sendSms' => SendSmsRequest::class,
-        'getSms'  => GetSmsRequest::class,
+        'sendSms'    => Request\SendSmsRequest::class,
+        'getSms'     => Request\GetSmsRequest::class,
+        'confirmSms' => Request\ConfirmSmsRequest::class,
+        'package'    => Request\PackageRequest::class,
     ];
 
     public static function getRequest($action)
