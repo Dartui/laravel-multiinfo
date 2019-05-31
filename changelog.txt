@@ -1,5 +1,8 @@
 # MultiInfo Changelog
 
+## 1.2.0 - 31-05-2019
+- Feature: add long SMS (over 160 chars) request and response
+
 ## 1.1.0 - 24-04-2018
 
 - Feature: new requests: confirmSms and package
