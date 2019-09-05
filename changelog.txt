@@ -1,5 +1,8 @@
 # MultiInfo Changelog
 
+## 1.3.0 - 05-09-2019
+- Feature: update required nesbot/carbon version
+
 ## 1.2.0 - 31-05-2019
 - Feature: add long SMS (over 160 chars) request and response
 
