@@ -1,3 +1,7 @@
+> This package is abandoned and should not be used. Use https://github.com/nextgen-tech/multiinfo-php instead.
+
+---
+
 # Laravel MultiInfo
 
 Polkomtel MultiInfo integration for sending SMS from Laravel applications
